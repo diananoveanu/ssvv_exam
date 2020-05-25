@@ -13,26 +13,26 @@ public class Test_ListEmotions {
         System.out.println("Test 1: Test how many emotions of given type are in list.");
         List emotionList = new ArrayList<Emotion>();
 
-        Emotion eJ = new Emotion("Joy", EmotionType.Joy);
-        emotionList.add(eJ);
-        Emotion eA = new Emotion("Anger", EmotionType.Anger);
-        emotionList.add(eA);
-        Emotion eJ2 = new Emotion("Joy", EmotionType.Joy);
-        emotionList.add(eJ2);
-        Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
-        emotionList.add(eS);
-        Emotion eJ3 = new Emotion("Joy", EmotionType.Joy);
-        emotionList.add(eJ3);
-        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
-        emotionList.add(eD);
-        Emotion eF = new Emotion("Fear", EmotionType.Fear);
-        emotionList.add(eF);
-        Emotion eJ4 = new Emotion("Joy", EmotionType.Joy);
-        emotionList.add(eJ4);
+//        Emotion eJ = new Emotion("Joy", EmotionType.Joy);
+//        emotionList.add(eJ);
+//        Emotion eA = new Emotion("Anger", EmotionType.Anger);
+//        emotionList.add(eA);
+//        Emotion eJ2 = new Emotion("Joy", EmotionType.Joy);
+//        emotionList.add(eJ2);
+//        Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
+//        emotionList.add(eS);
+//        Emotion eJ3 = new Emotion("Joy", EmotionType.Joy);
+//        emotionList.add(eJ3);
+//        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
+//        emotionList.add(eD);
+//        Emotion eF = new Emotion("Fear", EmotionType.Fear);
+//        emotionList.add(eF);
+//        Emotion eJ4 = new Emotion("Joy", EmotionType.Joy);
+//        emotionList.add(eJ4);
         ListEmotions eList = new ListEmotions(emotionList);
 
-        int numberJoy = eList.howGivenManyEmotionTypeInListEmotions(EmotionType.Joy);
-        assertEquals(numberJoy, 4);
+        int numberJoy = eList.howGivenManyEmotionTypeInListEmotions(EmotionType.Fear);
+        assertEquals(numberJoy, 0);
     }
 
     // Sample test case for the functionality "predominantEmotion"
