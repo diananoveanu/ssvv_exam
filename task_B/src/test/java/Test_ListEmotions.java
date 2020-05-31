@@ -7,6 +7,19 @@ import static org.junit.Assert.assertEquals;
 
 
 public class Test_ListEmotions {
+    // A_1 Tests
+    @Test
+    public void Test_NoEmotion_howGivenManyEmotionTypeInListEmotions() {
+        System.out.println("Test .... Test_NoEmotion_howGivenManyEmotionTypeInListEmotions ... ");
+        List lEmotions = new ArrayList<Emotion>();
+        ListEmotions le = new ListEmotions(lEmotions);
+        int howMany = le.howGivenManyEmotionTypeInListEmotions(EmotionType.Joy);
+        System.out.println("How many emotions of type Joy=" + howMany);
+        assertEquals(howMany, 0);
+    }
+
+    // A_2 Tests
+
     // Sample test case for the functionality "predominantEmotion"
     @Test
     public void Test_PredominantJoy_predominantEmotion() {
@@ -19,7 +32,6 @@ public class Test_ListEmotions {
         System.out.println("Number of Predominant Emotions=" + lstPE.size());
         assertEquals(lstPE.size(), 0);
     }
-    // A_2 Tests
 
     @Test
     public void Test_PredominantAll_predominantEmotion() {
