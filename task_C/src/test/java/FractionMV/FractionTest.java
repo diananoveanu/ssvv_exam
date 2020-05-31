@@ -32,7 +32,7 @@ public class FractionTest {
             fc2.Simplify();
             assertEquals(-25, fc2.getNumerator());
             assertEquals(7, fc2.getDenominator());
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("IOException ... ");
         }
     }
@@ -53,16 +53,16 @@ public class FractionTest {
             fc1.setDenominator(1);
             int result2 = fc1.getDenominator();
             assertTrue("getDenominator() returned " + result2 + " instead of 1.", result == 1);
+
             fc2.setNumerator(6);
             result2 = fc2.getNumerator();
             assertEquals(6, result2);
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println("IOException ... ");
         }
     }
 
-    public String[] getNumbersFromFile(String numbersFile) throws IOException
-    {
+    public String[] getNumbersFromFile(String numbersFile) throws IOException {
         int n = 0;
         BufferedReader in = new BufferedReader(new FileReader(numbersFile));
         while ((in.readLine()) != null) {
@@ -70,11 +70,11 @@ public class FractionTest {
         }
         in.close();
 
-        String[] la=new String[n];
+        String[] la = new String[n];
         String s = new String();
         int i = 0;
         in = new BufferedReader(new FileReader(numbersFile));
-        while ((s=in.readLine()) != null) {
+        while ((s = in.readLine()) != null) {
             la[i] = s;
             i++;
         }
