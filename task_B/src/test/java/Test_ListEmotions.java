@@ -183,7 +183,7 @@ public class Test_ListEmotions {
 
 
     // A_3 Tests
-    
+
     @Test
     public void Test_EliminateOne_eliminateAllProvidedEmotion() {
         System.out.println("Test .... Test_EliminateOne_eliminateAllProvidedEmotion ... ");
