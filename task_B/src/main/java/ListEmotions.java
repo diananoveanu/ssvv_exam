@@ -30,7 +30,7 @@ public class ListEmotions {
     // return the list of predominant emotions
     // Remark: Create a set of test cases to assess the correctness of your code.
     //         Create a class to test this method, several test cases are needed.
-    //         One sample test case is provided in cladd Test_ListEmotions.
+    //         One sample test case is provided in class Test_ListEmotions.
     public List<Emotion> predominantEmotion() {
         List<Emotion> lstEPredominant = new ArrayList<Emotion>();
         Map<EmotionType, Long> emotionsOccur = this.lstEmotions.stream()
