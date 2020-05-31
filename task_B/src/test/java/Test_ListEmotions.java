@@ -42,6 +42,22 @@ public class Test_ListEmotions {
     }
 
     @Test
+    public void Test_PredominantAllBoundary_predominantEmotion() {
+        System.out.println("Test .... Test_PredominantAll_predominantEmotion ... ");
+        List<Emotion> emotionList = new ArrayList<>();
+        emotionList.add(new Emotion("joy", EmotionType.Joy));
+        emotionList.add(new Emotion("anger", EmotionType.Anger));
+        emotionList.add(new Emotion("fear", EmotionType.Fear));
+        emotionList.add(new Emotion("disgust", EmotionType.Disgust));
+        emotionList.add(new Emotion("sadness", EmotionType.Sadness));
+        ListEmotions le = new ListEmotions(emotionList);
+        List<Emotion> resultList = le.predominantEmotion();
+        System.out.println("Number of Predominant Emotions=" + resultList.size());
+        assertEquals(resultList.size(), 5);
+    }
+
+
+    @Test
     public void Test_PredominantNone_predominantEmotion() {
         System.out.println("Test .... Test_PredominantNone_predominantEmotion ... ");
         List<Emotion> emotionList = new ArrayList<>();
@@ -66,6 +82,20 @@ public class Test_ListEmotions {
         emotionList.add(new Emotion("disgust", EmotionType.Disgust));
         emotionList.add(new Emotion("sadness", EmotionType.Sadness));
         emotionList.add(new Emotion("sadness", EmotionType.Sadness));
+        ListEmotions le = new ListEmotions(emotionList);
+        List<Emotion> resultList = le.predominantEmotion();
+        System.out.println("Number of Predominant Emotions=" + resultList.size());
+        assertEquals(resultList.size(), 3);
+    }
+
+
+    @Test
+    public void Test_PredominantOnlyOne_predominantEmotion() {
+        System.out.println("Test .... Test_PredominantOne_predominantEmotion ... ");
+        List<Emotion> emotionList = new ArrayList<>();
+        emotionList.add(new Emotion("joy", EmotionType.Joy));
+        emotionList.add(new Emotion("joy", EmotionType.Joy));
+        emotionList.add(new Emotion("joy", EmotionType.Joy));
         ListEmotions le = new ListEmotions(emotionList);
         List<Emotion> resultList = le.predominantEmotion();
         System.out.println("Number of Predominant Emotions=" + resultList.size());
