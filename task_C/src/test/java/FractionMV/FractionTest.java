@@ -16,50 +16,66 @@ import java.io.IOException;
 
 public class FractionTest {
 
-    private Fraction fc1, fc2, fc3;
+    private Fraction fraction;
+    private Integer result;
 
     @Test
-    public void testSimplify() {
-        try {
-            String[] arrayNumbers = getNumbersFromFile("src/test/java/FractionMV/GivenNumbers1.txt");
-            fc1 = new Fraction(Integer.getInteger(arrayNumbers[0]).intValue(), Integer.getInteger(arrayNumbers[1]).intValue());
-            fc1.Simplify();
-            assertEquals(2, fc1.getNumerator());
-            assertEquals(5, fc1.getDenominator());
-
-            String[] arrayNumbers2 = getNumbersFromFile("src/test/java/FractionMV/GivenNumbers2.txt");
-            fc2 = new Fraction(Integer.getInteger(arrayNumbers2[0]).intValue(), Integer.getInteger(arrayNumbers2[1]).intValue());
-            fc2.Simplify();
-            assertEquals(-25, fc2.getNumerator());
-            assertEquals(7, fc2.getDenominator());
-        } catch (IOException e) {
-            System.out.println("IOException ... ");
-        }
+    public void testSimplify1() {
+        Integer numerator = 12;
+        Integer dominator = 30;
+        fraction = new Fraction(numerator, dominator);
+        fraction.Simplify();
+        assertEquals(2, fraction.getNumerator());
+        assertEquals(5, fraction.getDenominator());
     }
 
     @Test
-    public void test_Denominator() {
-        try {
-            String[] arrayNumbers = getNumbersFromFile("src/test/java/FractionMV/GivenNumbers1.txt");
-            fc1 = new Fraction(Integer.getInteger(arrayNumbers[0]).intValue(), Integer.getInteger(arrayNumbers[1]).intValue());
-            int result = fc1.getDenominator();
-            assertTrue("getDenominator() returned " + result + " instead of 30.", result == 30);
+    public void testSimplify2() {
+        Integer numerator = -25;
+        Integer dominator = 7;
+        fraction = new Fraction(numerator, dominator);
+        fraction.Simplify();
+        assertEquals(-25, fraction.getNumerator());
+        assertEquals(7, fraction.getDenominator());
+    }
 
-            String[] arrayNumbers2 = getNumbersFromFile("src/test/java/FractionMV/GivenNumbers2.txt");
-            fc2 = new Fraction(Integer.getInteger(arrayNumbers2[0]).intValue(), Integer.getInteger(arrayNumbers2[1]).intValue());
-            result = fc2.getNumerator();
-            assertEquals(7, result);
 
-            fc1.setDenominator(1);
-            int result2 = fc1.getDenominator();
-            assertTrue("getDenominator() returned " + result2 + " instead of 1.", result == 1);
+    @Test
+    public void testDenominator1() {
+        Integer numerator = 12;
+        Integer dominator = 30;
+        fraction = new Fraction(numerator, dominator);
+        result = fraction.getDenominator();
+        assertTrue("getDenominator() returned " + result + " instead of 30.", result == 30);
+    }
 
-            fc2.setNumerator(6);
-            result2 = fc2.getNumerator();
-            assertEquals(6, result2);
-        } catch (IOException e) {
-            System.out.println("IOException ... ");
-        }
+    @Test
+    public void testDenominator2() {
+        Integer numerator = -25;
+        Integer dominator = 7;
+        fraction = new Fraction(numerator, dominator);
+        result = fraction.getNumerator();
+        assertEquals(7, result);
+    }
+
+    @Test
+    public void testSetDenominator1() {
+        Integer numerator = 12;
+        Integer dominator = 30;
+        fraction = new Fraction(numerator, dominator);
+        fraction.setDenominator(1);
+        result = fraction.getDenominator();
+        assertTrue("getDenominator() returned " + result + " instead of 1.", result == 1);
+    }
+
+    @Test
+    public void testSetDenominator2() {
+        Integer numerator = -25;
+        Integer dominator = 7;
+        fraction = new Fraction(numerator, dominator);
+        fraction.setNumerator(6);
+        result = fraction.getNumerator();
+        assertEquals(6, result);
     }
 
     public String[] getNumbersFromFile(String numbersFile) throws IOException {
@@ -81,6 +97,4 @@ public class FractionTest {
         in.close();
         return la;
     }
-
-
 }
