@@ -1,100 +1,71 @@
 package FractionMV;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.junit.Before;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-/**
- * Unit test for simple App.
- */
 
 public class FractionTest {
-
-    private Fraction fraction;
-    private Integer result;
-
     @Test
-    public void testSimplify1() {
-        Integer numerator = 12;
-        Integer dominator = 30;
-        fraction = new Fraction(numerator, dominator);
+    public void testSimplify_Simplified() {
+        System.out.println("Test .... Test_testSimplify_Simplified");
+        Fraction fraction = new Fraction(12, 30);
         fraction.Simplify();
-        assertEquals(2, fraction.getNumerator());
-        assertEquals(5, fraction.getDenominator());
+        int simplifiedNumerator = fraction.getNumerator();
+        int simplifiedDenominator = fraction.getDenominator();
+        assertEquals("Simplify() returned numerator: " + simplifiedNumerator + " instead of 2.", 2, simplifiedNumerator);
+        assertEquals("Simplify() returned denominator: " + simplifiedDenominator + " instead of 5.", 5, simplifiedDenominator);
     }
 
     @Test
-    public void testSimplify2() {
-        Integer numerator = -25;
-        Integer dominator = 7;
-        fraction = new Fraction(numerator, dominator);
+    public void testSimplify_Unsimplified() {
+        System.out.println("Test .... Test_testSimplify_Unsimplified");
+        Fraction fraction = new Fraction(-25, 7);
         fraction.Simplify();
-        assertEquals(-25, fraction.getNumerator());
-        assertEquals(7, fraction.getDenominator());
-    }
-
-
-    @Test
-    public void testDenominator1() {
-        Integer numerator = 12;
-        Integer dominator = 30;
-        fraction = new Fraction(numerator, dominator);
-        result = fraction.getDenominator();
-        assertTrue("getDenominator() returned " + result + " instead of 30.", result == 30);
+        int simplifiedNumerator = fraction.getNumerator();
+        int simplifiedDenominator = fraction.getDenominator();
+        assertEquals("Simplify() returned numerator: " + simplifiedNumerator + " instead of -25.", -25, fraction.getNumerator());
+        assertEquals("Simplify() returned denominator: " + simplifiedDenominator + " instead of 7.", 7, fraction.getDenominator());
     }
 
     @Test
-    public void testDenominator2() {
-        Integer numerator = -25;
-        Integer dominator = 7;
-        fraction = new Fraction(numerator, dominator);
-        result = fraction.getNumerator();
-        assertEquals(7, result);
+    public void testGetDenominator() {
+        System.out.println("Test .... Test_testGetDenominator");
+        int numerator = 12;
+        int denominator = 30;
+        Fraction fraction = new Fraction(numerator, denominator);
+        int result = fraction.getDenominator();
+        assertEquals("getDenominator() returned " + result + " instead of 30.", 30, result);
     }
 
     @Test
-    public void testSetDenominator1() {
-        Integer numerator = 12;
-        Integer dominator = 30;
-        fraction = new Fraction(numerator, dominator);
+    public void testGetNumerator() {
+        System.out.println("Test .... Test_testGetNumerator");
+        int numerator = -25;
+        int dominator = 7;
+        Fraction fraction = new Fraction(numerator, dominator);
+        int result = fraction.getNumerator();
+        assertEquals("getNumerator() returned " + result + " instead of -25.", -25, result);
+    }
+
+    @Test
+    public void testSetDenominator() {
+        System.out.println("Test .... Test_testSetDenominator");
+        int numerator = 12;
+        int dominator = 30;
+        Fraction fraction = new Fraction(numerator, dominator);
         fraction.setDenominator(1);
-        result = fraction.getDenominator();
-        assertTrue("getDenominator() returned " + result + " instead of 1.", result == 1);
+        int result = fraction.getDenominator();
+        assertEquals("setDenominator() returned " + result + " instead of 1.", 1, result);
     }
 
     @Test
-    public void testSetDenominator2() {
-        Integer numerator = -25;
-        Integer dominator = 7;
-        fraction = new Fraction(numerator, dominator);
+    public void testSetNumerator() {
+        System.out.println("Test .... Test_testSetNumerator");
+        int numerator = -25;
+        int dominator = 7;
+        Fraction fraction = new Fraction(numerator, dominator);
         fraction.setNumerator(6);
-        result = fraction.getNumerator();
-        assertEquals(6, result);
-    }
-
-    public String[] getNumbersFromFile(String numbersFile) throws IOException {
-        int n = 0;
-        BufferedReader in = new BufferedReader(new FileReader(numbersFile));
-        while ((in.readLine()) != null) {
-            n++;
-        }
-        in.close();
-
-        String[] la = new String[n];
-        String s = new String();
-        int i = 0;
-        in = new BufferedReader(new FileReader(numbersFile));
-        while ((s = in.readLine()) != null) {
-            la[i] = s;
-            i++;
-        }
-        in.close();
-        return la;
+        int result = fraction.getNumerator();
+        assertEquals("setNumerator() returned " + result + " instead of 6.", 6, result);
     }
 }
