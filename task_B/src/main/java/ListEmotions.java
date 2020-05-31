@@ -19,7 +19,7 @@ public class ListEmotions {
     public int howGivenManyEmotionTypeInListEmotions(EmotionType et) {
         int nJE = 0;
         for (Emotion emotion : this.lstEmotions) {
-            if (emotion.getEmotionType() == et) {
+            if (emotion.getEmotionType().equals(et)) {
                 nJE++;
             }
         }
@@ -37,7 +37,7 @@ public class ListEmotions {
                 .collect(Collectors.groupingBy(Emotion::getEmotionType,
                         TreeMap::new,
                         Collectors.counting()));
-        if(emotionsOccur.values().isEmpty()){
+        if (emotionsOccur.values().isEmpty()) {
             return lstEPredominant;
         }
         Long maxOccur = Collections.max(emotionsOccur.values());

@@ -19,8 +19,19 @@ public class Test_ListEmotions {
         System.out.println("Number of Predominant Emotions=" + lstPE.size());
         assertEquals(lstPE.size(), 0);
     }
+    // A_2 Tests
 
+    @Test
+    public void Test_PredominantAll_predominantEmotion() {
 
+    }
+
+    @Test
+    public void Test_PredominantNone_predominantEmotion() {
+
+    }
+
+    // A_3 Tests
     @Test
     public void Test_EliminateOne_eliminateAllProvidedEmotion() {
         System.out.println("Test .... Test_EliminateOne_eliminateAllProvidedEmotion ... ");
