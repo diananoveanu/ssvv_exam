@@ -7,34 +7,6 @@ import static org.junit.Assert.assertEquals;
 
 
 public class Test_ListEmotions {
-
-    @Test
-    public void Test_Joy_howManyEmotionsType() {
-        System.out.println("Test 1: Test how many emotions of given type are in list.");
-        List emotionList = new ArrayList<Emotion>();
-
-//        Emotion eJ = new Emotion("Joy", EmotionType.Joy);
-//        emotionList.add(eJ);
-//        Emotion eA = new Emotion("Anger", EmotionType.Anger);
-//        emotionList.add(eA);
-//        Emotion eJ2 = new Emotion("Joy", EmotionType.Joy);
-//        emotionList.add(eJ2);
-//        Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
-//        emotionList.add(eS);
-//        Emotion eJ3 = new Emotion("Joy", EmotionType.Joy);
-//        emotionList.add(eJ3);
-//        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
-//        emotionList.add(eD);
-//        Emotion eF = new Emotion("Fear", EmotionType.Fear);
-//        emotionList.add(eF);
-//        Emotion eJ4 = new Emotion("Joy", EmotionType.Joy);
-//        emotionList.add(eJ4);
-        ListEmotions eList = new ListEmotions(emotionList);
-
-        int numberJoy = eList.howGivenManyEmotionTypeInListEmotions(EmotionType.Fear);
-        assertEquals(numberJoy, 0);
-    }
-
     // Sample test case for the functionality "predominantEmotion"
     @Test
     public void Test_PredominantJoy_predominantEmotion() {
@@ -44,7 +16,7 @@ public class Test_ListEmotions {
         ListEmotions le = new ListEmotions(lEmotions);
 
         List<Emotion> lstPE = le.predominantEmotion();
-        //System.out.println("Number of Predominant Emotions="+lstPE.size());
+        System.out.println("Number of Predominant Emotions=" + lstPE.size());
         assertEquals(lstPE.size(), 0);
     }
 
@@ -60,13 +32,13 @@ public class Test_ListEmotions {
         lEmotions.add(eS);
         Emotion eJ = new Emotion("Joy", EmotionType.Joy);
         lEmotions.add(eJ);
-        Emotion eD = new Emotion("Digust", EmotionType.Disgust);
+        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
         lEmotions.add(eD);
         Emotion eF = new Emotion("Fear", EmotionType.Fear);
         lEmotions.add(eF);
 
         ListEmotions le = new ListEmotions(lEmotions);
-        //System.out.println("Number of  Emotions="+le.getNumberOfEmotions());
+        System.out.println("Number of  Emotions=" + le.getNumberOfEmotions());
         le.eliminateAllProvidedEmotion(EmotionType.Joy);
         assertEquals(le.getNumberOfEmotions(), 4);
     }
@@ -86,7 +58,7 @@ public class Test_ListEmotions {
         lEmotions.add(eS);
         Emotion eJ3 = new Emotion("Joy", EmotionType.Joy);
         lEmotions.add(eJ3);
-        Emotion eD = new Emotion("Digust", EmotionType.Disgust);
+        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
         lEmotions.add(eD);
         Emotion eF = new Emotion("Fear", EmotionType.Fear);
         lEmotions.add(eF);
@@ -94,9 +66,9 @@ public class Test_ListEmotions {
         lEmotions.add(eJ4);
 
         ListEmotions le = new ListEmotions(lEmotions);
-        //System.out.println("Number of  Emotions="+le.getNumberOfEmotions());
+        System.out.println("Number of  Emotions=" + le.getNumberOfEmotions());
         le.eliminateAllProvidedEmotion(EmotionType.Joy);
-        //System.out.println("Number of Emotions after elimination="+le.getNumberOfEmotions());
+        System.out.println("Number of Emotions after elimination=" + le.getNumberOfEmotions());
         assertEquals(le.getNumberOfEmotions(), 4);
     }
 
@@ -115,7 +87,7 @@ public class Test_ListEmotions {
         lEmotions.add(eJ4);
 
         ListEmotions le = new ListEmotions(lEmotions);
-        //  System.out.println("Number of  Emotions="+le.getNumberOfEmotions());
+        System.out.println("Number of  Emotions=" + le.getNumberOfEmotions());
         le.eliminateAllProvidedEmotion(EmotionType.Joy);
         assertEquals(le.getNumberOfEmotions(), 0);
     }
@@ -129,13 +101,13 @@ public class Test_ListEmotions {
         lEmotions.add(eA);
         Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
         lEmotions.add(eS);
-        Emotion eD = new Emotion("Digust", EmotionType.Disgust);
+        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
         lEmotions.add(eD);
         Emotion eF = new Emotion("Fear", EmotionType.Fear);
         lEmotions.add(eF);
 
         ListEmotions le = new ListEmotions(lEmotions);
-        //System.out.println("Number of  Emotions="+le.getNumberOfEmotions());
+        System.out.println("Number of  Emotions=" + le.getNumberOfEmotions());
         le.eliminateAllProvidedEmotion(EmotionType.Joy);
         assertEquals(le.getNumberOfEmotions(), 4);
     }
@@ -151,7 +123,7 @@ public class Test_ListEmotions {
         lEmotions.add(eA);
         Emotion eS = new Emotion("Sadness", EmotionType.Sadness);
         lEmotions.add(eS);
-        Emotion eD = new Emotion("Digust", EmotionType.Disgust);
+        Emotion eD = new Emotion("Disgust", EmotionType.Disgust);
         lEmotions.add(eD);
         Emotion eF = new Emotion("Fear", EmotionType.Fear);
         lEmotions.add(eF);
@@ -159,7 +131,7 @@ public class Test_ListEmotions {
         lEmotions.add(eJ4);
 
         ListEmotions le = new ListEmotions(lEmotions);
-        //System.out.println("Number of  Emotions="+le.getNumberOfEmotions());
+        System.out.println("Number of  Emotions=" + le.getNumberOfEmotions());
         le.eliminateAllProvidedEmotion(EmotionType.Joy);
         assertEquals(le.getNumberOfEmotions(), 4);
     }
