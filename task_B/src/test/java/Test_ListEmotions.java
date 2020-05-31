@@ -9,14 +9,69 @@ import static org.junit.Assert.assertEquals;
 public class Test_ListEmotions {
     // A_1 Tests
     @Test
-    public void Test_NoEmotion_howGivenManyEmotionTypeInListEmotions() {
-        System.out.println("Test .... Test_NoEmotion_howGivenManyEmotionTypeInListEmotions ... ");
+    public void Test_EmptyList_howGivenManyEmotionTypeInListEmotions() {
+        System.out.println("Test .... Test_EmptyList_howGivenManyEmotionTypeInListEmotions ... ");
         List lEmotions = new ArrayList<Emotion>();
         ListEmotions le = new ListEmotions(lEmotions);
         int howMany = le.howGivenManyEmotionTypeInListEmotions(EmotionType.Joy);
         System.out.println("How many emotions of type Joy=" + howMany);
         assertEquals(howMany, 0);
     }
+
+    @Test
+    public void Test_All_howGivenManyEmotionTypeInListEmotions() {
+        System.out.println("Test .... Test_All_howGivenManyEmotionTypeInListEmotions ... ");
+        List lEmotions = new ArrayList<Emotion>();
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+
+        ListEmotions le = new ListEmotions(lEmotions);
+
+        int howMany = le.howGivenManyEmotionTypeInListEmotions(EmotionType.Joy);
+        System.out.println("How many emotions of type Joy=" + howMany);
+        assertEquals(howMany, 6);
+    }
+
+    @Test
+    public void Test_EmotionNotInList_howGivenManyEmotionTypeInListEmotions() {
+        System.out.println("Test .... Test_EmotionNotInList_howGivenManyEmotionTypeInListEmotions ... ");
+        List lEmotions = new ArrayList<Emotion>();
+        lEmotions.add(new Emotion("disgust", EmotionType.Disgust));
+        lEmotions.add(new Emotion("anger", EmotionType.Anger));
+        lEmotions.add(new Emotion("anger", EmotionType.Anger));
+        lEmotions.add(new Emotion("fear", EmotionType.Fear));
+        lEmotions.add(new Emotion("fear", EmotionType.Fear));
+
+        ListEmotions le = new ListEmotions(lEmotions);
+
+        int howMany = le.howGivenManyEmotionTypeInListEmotions(EmotionType.Joy);
+        System.out.println("How many emotions of type Joy=" + howMany);
+        assertEquals(howMany, 0);
+    }
+
+    @Test
+    public void Test_EmotionInList_howGivenManyEmotionTypeInListEmotions() {
+        System.out.println("Test .... Test_EmotionInList_howGivenManyEmotionTypeInListEmotions ... ");
+        List lEmotions = new ArrayList<Emotion>();
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("joy", EmotionType.Joy));
+        lEmotions.add(new Emotion("disgust", EmotionType.Disgust));
+        lEmotions.add(new Emotion("anger", EmotionType.Anger));
+        lEmotions.add(new Emotion("anger", EmotionType.Anger));
+        lEmotions.add(new Emotion("fear", EmotionType.Fear));
+        lEmotions.add(new Emotion("fear", EmotionType.Fear));
+
+        ListEmotions le = new ListEmotions(lEmotions);
+
+        int howMany = le.howGivenManyEmotionTypeInListEmotions(EmotionType.Joy);
+        System.out.println("How many emotions of type Joy=" + howMany);
+        assertEquals(howMany, 2);
+    }
+
 
     // A_2 Tests
 
@@ -99,7 +154,6 @@ public class Test_ListEmotions {
         System.out.println("Number of Predominant Emotions=" + resultList.size());
         assertEquals(resultList.size(), 3);
     }
-
 
     @Test
     public void Test_PredominantOnlyOne_predominantEmotion() {
